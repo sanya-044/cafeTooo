@@ -1,6 +1,7 @@
  "use client";
 
 import { useState } from "react";
+import { MessageCircle } from "lucide-react";
 
 const menuCategories = [
   { id: "drinks", name: "Drinks" },
@@ -84,9 +85,21 @@ const customGalleryImages = [
   { url: "/img4.png", title: "Polaroids & Hangout Corner" },
 ];
 
+// Dedicated list for customized food pictures
+const foodPicsList = [
+  { url: "/pic2.png", title: "Wood-Fired Margherita Pizza", desc: "Freshly baked with extra mozzarella." },
+  { url: "/pic3.png", title: "Crispy Golden Fries & Bites", desc: "Served hot and perfectly salted." },
+  { url: "/pic4.png", title: "Signature Red Sauce pasta", desc: "Loaded with toppings and rich flavor." },
+  { url: "/pic5.png", title: "Special Creamy Pizza", desc: "Tossed with fresh herbs and veggies." },
+  { url: "/pic6.png", title: "Special Creamy Pakoda", desc: "Tossed with fresh herbs and veggies." },
+  { url: "/pic8.png", title: "Special Creamy Pizza", desc: "Tossed with fresh herbs and veggies." },
+
+
+];
+
 export default function AboutMenuGallery() {
   const [activeTab, setActiveTab] = useState<keyof typeof menuItems>("drinks");
-  const [viewMode, setViewMode] = useState<"home" | "gallery" | "paper-menu">("home");
+  const [viewMode, setViewMode] = useState<"home" | "gallery" | "paper-menu" | "food-pics">("home");
 
   const handleReturnToMenu = () => {
     setViewMode("home");
@@ -109,7 +122,7 @@ export default function AboutMenuGallery() {
             </div>
             <button
               onClick={() => setViewMode("home")}
-              className="bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-lg border border-orange-400/30"
+              className="bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-lg border border-orange-400/30 cursor-pointer"
             >
               ← Back to Home
             </button>
@@ -146,12 +159,58 @@ export default function AboutMenuGallery() {
     );
   }
 
+  if (viewMode === "food-pics") {
+    return (
+      <div className="min-h-screen bg-[#090706] text-white py-20 px-6 md:px-16 selection:bg-orange-600 selection:text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 border-b border-white/10 pb-6 gap-4">
+            <div>
+              <p className="text-orange-400 text-xs uppercase tracking-[0.3em] font-semibold mb-2">✦ Delicious Creations</p>
+              <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight">Customized Food Gallery</h1>
+            </div>
+            <button
+              onClick={handleReturnToMenu}
+              className="bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-lg border border-orange-400/30 cursor-pointer"
+            >
+              ← Back to Menu
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            {foodPicsList.map((pic, idx) => (
+              <div 
+                key={idx} 
+                className="group relative overflow-hidden rounded-2xl aspect-[16/10] border border-white/10 bg-[#120e0c] shadow-2xl transition-transform duration-500 hover:-translate-y-2"
+              >
+                <img
+                  src={pic.url}
+                  alt={pic.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 filter brightness-95 contrast-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-8 flex flex-col justify-end">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-orange-400 font-bold mb-1">Freshly Prepared</span>
+                  <h3 className="text-lg md:text-xl font-bold uppercase tracking-wide text-white mb-1">{pic.title}</h3>
+                  <p className="text-white/70 text-xs">{pic.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-24 pt-8 border-t border-white/10 text-center text-xs text-white/50 uppercase tracking-widest">
+            <p>© {new Date().getFullYear()} Café Too, Kolkata • Crafted with Love & Flavor</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (viewMode === "paper-menu") {
     return (
       <div className="min-h-screen bg-[#331c13] text-[#f4d0a4] py-20 px-4 md:px-12 selection:bg-amber-600 selection:text-white">
         <div className="max-w-4xl mx-auto bg-[#26130b] border-2 border-[#d49454]/40 rounded-2xl p-6 md:p-12 shadow-2xl relative">
           
-          {/* Top Bar inside Paper Menu */}
           <div className="flex justify-between items-center mb-10 pb-6 border-b border-[#d49454]/20">
             <span className="text-xs uppercase tracking-[0.25em] text-[#d49454] font-semibold">✦ Authentic Physical Menu Card</span>
             <button
@@ -162,7 +221,6 @@ export default function AboutMenuGallery() {
             </button>
           </div>
 
-          {/* Paper Menu Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-black italic tracking-wider text-[#ffb074] drop-shadow-md mb-2" style={{ fontFamily: 'serif' }}>
               Café <span className="text-white not-italic">Too</span>
@@ -172,12 +230,9 @@ export default function AboutMenuGallery() {
             </div>
           </div>
 
-          {/* Two-Column Grid matching paper menu reference */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
             
-            {/* Column 1: Drinks & Pasta & Pizza */}
             <div className="space-y-8">
-              {/* Drinks */}
               <div>
                 <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Drinks</h3>
                 <div className="space-y-2 text-xs md:text-sm">
@@ -191,7 +246,6 @@ export default function AboutMenuGallery() {
                 </div>
               </div>
 
-              {/* Pasta */}
               <div>
                 <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Pasta</h3>
                 <div className="space-y-2 text-xs md:text-sm">
@@ -205,7 +259,6 @@ export default function AboutMenuGallery() {
                 </div>
               </div>
 
-              {/* Pizza */}
               <div>
                 <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Pizza</h3>
                 <div className="space-y-2 text-xs md:text-sm">
@@ -220,9 +273,7 @@ export default function AboutMenuGallery() {
               </div>
             </div>
 
-            {/* Column 2: Tea & Quick bites & Combo */}
             <div className="space-y-8">
-              {/* Tea & Coffee */}
               <div>
                 <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Tea</h3>
                 <div className="space-y-2 text-xs md:text-sm">
@@ -236,7 +287,6 @@ export default function AboutMenuGallery() {
                 </div>
               </div>
 
-              {/* Quick bites */}
               <div>
                 <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Quick bites</h3>
                 <div className="space-y-2 text-xs md:text-sm">
@@ -250,7 +300,6 @@ export default function AboutMenuGallery() {
                 </div>
               </div>
 
-              {/* Combo */}
               <div>
                 <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Combo</h3>
                 <div className="space-y-2 text-xs md:text-sm">
@@ -334,18 +383,25 @@ export default function AboutMenuGallery() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-orange-400 text-xs uppercase tracking-[0.3em] font-semibold mb-3">Delicious Offerings</p>
           <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4">Explore Our Menu</h2>
-          <p className="text-white/60 text-sm mb-6">Handcrafted beverages, pastas, pizzas, and quick bites made fresh to order.</p>
+          <p className="text-white/60 text-sm mb-8">Handcrafted beverages, pastas, pizzas, and quick bites made fresh to order.</p>
           
-          {/* View Paper Menu Button */}
-          <button
-            onClick={() => setViewMode("paper-menu")}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all shadow-lg border border-orange-400/30 transform hover:scale-105 cursor-pointer"
-          >
-            📄 View Paper Menu
-          </button>
+          {/* Action Buttons: View Paper Menu & View Food Pics */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <button
+              onClick={() => setViewMode("paper-menu")}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all shadow-lg border border-orange-400/30 transform hover:scale-105 cursor-pointer"
+            >
+              📄 View Paper Menu
+            </button>
+            <button
+              onClick={() => setViewMode("food-pics")}
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all shadow-lg border border-white/20 transform hover:scale-105 cursor-pointer"
+            >
+              📸 View Food Pics
+            </button>
+          </div>
         </div>
 
-        {/* Category Tabs */}
         <div className="flex justify-center gap-3 md:gap-4 mb-12 flex-wrap">
           {menuCategories.map((cat) => (
             <button
@@ -362,7 +418,6 @@ export default function AboutMenuGallery() {
           ))}
         </div>
 
-        {/* Menu Items Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {menuItems[activeTab].map((item, idx) => (
             <div
@@ -438,11 +493,13 @@ export default function AboutMenuGallery() {
                 <span>Jay Ambey Apartment, 146 Dhalua Main Road, Kolkata - 700152</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-orange-400">📞</span>
+                <MessageCircle size={16} className="text-green-500 shrink-0" />
                 <span>+91 91430 03365</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-orange-400">📸</span>
+                <svg className="w-4 h-4 text-orange-400 shrink-0 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
                 <a href="https://www.instagram.com/cafetoo_15.04" target="_blank" rel="noreferrer" className="hover:text-orange-400 underline">
                   @cafetoo_15.04
                 </a>

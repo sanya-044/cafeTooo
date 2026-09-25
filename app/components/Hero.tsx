@@ -10,8 +10,8 @@ const slides = [
     eyebrow: "SIP. CHILL. REPEAT.",
     title: ["YOUR", "EVERYDAY", "CHILL SPOT."],
     description: "Welcome to Café Too — a cozy haven filled with warm lighting, polaroids, and incredible food right in Garia.",
-    image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=2200&q=90",
-  },
+    // FIXED: Reliable, high-end image of creamy white sauce pasta
+ image: "ss.png",  },
   {
     number: "02",
     label: "SIGNATURE DELICACIES",
@@ -26,7 +26,7 @@ const slides = [
     eyebrow: "GOOD FOOD & GREAT MEMORIES",
     title: ["OWN", "THE", "VIBE."],
     description: "Surrounded by travel memories, aesthetic decor, and friends. The ultimate hangout spot after dark.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2200&q=90",
+    image: "https://aartimadan.com/wp-content/uploads/2020/07/White-Sauce-Pasta.jpg",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function Hero() {
 
               {/* Slide Content */}
               <div className="relative z-10 flex h-full flex-col justify-between px-6 py-10 text-white sm:px-10 sm:py-14 lg:px-16 lg:py-16">
-                {/* Main typography — given extra top padding so it completely clears the global navbar */}
+                {/* Main typography */}
                 <div className="mt-32 sm:mt-40 max-w-[1200px]">
                   <p className="mb-4 text-[10px] uppercase tracking-[0.35em] sm:text-xs text-orange-400 font-semibold">
                     {slide.eyebrow}
@@ -106,7 +106,7 @@ export default function Hero() {
                   </h1>
                 </div>
 
-                {/* Bottom */}
+                {/* Bottom content */}
                 <div className="flex items-end justify-between gap-8 pb-10">
                   <p className="hidden max-w-md text-xs leading-6 text-white/80 sm:block">
                     {slide.description}
@@ -129,7 +129,7 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* FIXED COLLECTION INDICATOR (Safely below global navbar height) */}
+        {/* FIXED COLLECTION INDICATOR */}
         <div className="pointer-events-none absolute left-6 top-28 z-30 flex items-center gap-3 text-white sm:left-10 sm:top-28 lg:left-16">
           <span className="h-px w-8 bg-orange-400" />
           <span className="text-[10px] uppercase tracking-[0.3em] sm:text-xs text-orange-300 font-medium">
@@ -144,21 +144,23 @@ export default function Hero() {
 
         {/* Progress indicators */}
         <div className="absolute bottom-7 left-6 z-30 flex items-center gap-3 sm:left-10 lg:left-16">
-          {slides.map((slide, index) => (
-            <div key={slide.number} className="relative h-[2px] w-10 overflow-hidden bg-white/30">
-              <div
-                className="absolute inset-y-0 left-0 bg-orange-500 transition-[width] duration-100"
-                style={{
-                  width:
-                    index < activeSlide
-                      ? "100%"
-                      : index === activeSlide
-                      ? `${Math.max(15, Math.min(100, (progress * slides.length - index) * 100))}%`
-                      : "0%",
-                }}
-              />
-            </div>
-          ))}
+          {slides.map((slide, index) => {
+            const slideProgress =
+              index < activeSlide
+                ? 100
+                : index === activeSlide
+                ? Math.max(15, Math.min(100, (progress * slides.length - index) * 100))
+                : 0;
+
+            return (
+              <div key={slide.number} className="relative h-[2px] w-10 overflow-hidden bg-white/30">
+                <div
+                  className="absolute inset-y-0 left-0 bg-orange-500 transition-[width] duration-100"
+                  style={{ width: `${slideProgress}%` }}
+                />
+              </div>
+            );
+          })}
         </div>
 
         {/* Scroll hint */}
