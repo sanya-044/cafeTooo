@@ -1,7 +1,7 @@
- "use client";
+ 
+"use client";
 
 import { useState } from "react";
-import { MessageCircle } from "lucide-react";
 
 const menuCategories = [
   { id: "drinks", name: "Drinks" },
@@ -85,7 +85,6 @@ const customGalleryImages = [
   { url: "/img4.png", title: "Polaroids & Hangout Corner" },
 ];
 
-// Dedicated list for customized food pictures
 const foodPicsList = [
   { url: "/pic2.png", title: "Wood-Fired Margherita Pizza", desc: "Freshly baked with extra mozzarella." },
   { url: "/pic3.png", title: "Crispy Golden Fries & Bites", desc: "Served hot and perfectly salted." },
@@ -93,8 +92,6 @@ const foodPicsList = [
   { url: "/pic5.png", title: "Special Creamy Pizza", desc: "Tossed with fresh herbs and veggies." },
   { url: "/pic6.png", title: "Special Creamy Pakoda", desc: "Tossed with fresh herbs and veggies." },
   { url: "/pic8.png", title: "Special Creamy Pizza", desc: "Tossed with fresh herbs and veggies." },
-
-
 ];
 
 export default function AboutMenuGallery() {
@@ -120,27 +117,15 @@ export default function AboutMenuGallery() {
               <p className="text-orange-400 text-xs uppercase tracking-[0.3em] font-semibold mb-2">✦ Exclusive Showcase</p>
               <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight">Café Too Full Gallery</h1>
             </div>
-            <button
-              onClick={() => setViewMode("home")}
-              className="bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-lg border border-orange-400/30 cursor-pointer"
-            >
+            <button onClick={() => setViewMode("home")} className="bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-lg border border-orange-400/30 cursor-pointer">
               ← Back to Home
             </button>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {customGalleryImages.map((img, idx) => (
-              <div 
-                key={idx} 
-                className="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-white/10 bg-[#120e0c] shadow-2xl transition-transform duration-500 hover:-translate-y-2"
-              >
-                <img
-                  src={img.url}
-                  alt={img.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 filter brightness-90 contrast-110"
-                />
+              <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-white/10 bg-[#120e0c] shadow-2xl transition-transform duration-500 hover:-translate-y-2">
+                <img src={img.url} alt={img.title} loading="lazy" decoding="async" className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 filter brightness-90 contrast-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
                   <div>
                     <span className="text-[10px] uppercase tracking-[0.3em] text-orange-400 font-bold block mb-1">Café Too Moment</span>
@@ -168,27 +153,15 @@ export default function AboutMenuGallery() {
               <p className="text-orange-400 text-xs uppercase tracking-[0.3em] font-semibold mb-2">✦ Delicious Creations</p>
               <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight">Customized Food Gallery</h1>
             </div>
-            <button
-              onClick={handleReturnToMenu}
-              className="bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-lg border border-orange-400/30 cursor-pointer"
-            >
+            <button onClick={handleReturnToMenu} className="bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-lg border border-orange-400/30 cursor-pointer">
               ← Back to Menu
             </button>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {foodPicsList.map((pic, idx) => (
-              <div 
-                key={idx} 
-                className="group relative overflow-hidden rounded-2xl aspect-[16/10] border border-white/10 bg-[#120e0c] shadow-2xl transition-transform duration-500 hover:-translate-y-2"
-              >
-                <img
-                  src={pic.url}
-                  alt={pic.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 filter brightness-95 contrast-105"
-                />
+              <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[16/10] border border-white/10 bg-[#120e0c] shadow-2xl transition-transform duration-500 hover:-translate-y-2">
+                <img src={pic.url} alt={pic.title} loading="lazy" decoding="async" className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 filter brightness-95 contrast-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-8 flex flex-col justify-end">
                   <span className="text-[10px] uppercase tracking-[0.3em] text-orange-400 font-bold mb-1">Freshly Prepared</span>
                   <h3 className="text-lg md:text-xl font-bold uppercase tracking-wide text-white mb-1">{pic.title}</h3>
@@ -210,19 +183,15 @@ export default function AboutMenuGallery() {
     return (
       <div className="min-h-screen bg-[#331c13] text-[#f4d0a4] py-20 px-4 md:px-12 selection:bg-amber-600 selection:text-white">
         <div className="max-w-4xl mx-auto bg-[#26130b] border-2 border-[#d49454]/40 rounded-2xl p-6 md:p-12 shadow-2xl relative">
-          
           <div className="flex justify-between items-center mb-10 pb-6 border-b border-[#d49454]/20">
             <span className="text-xs uppercase tracking-[0.25em] text-[#d49454] font-semibold">✦ Authentic Physical Menu Card</span>
-            <button
-              onClick={handleReturnToMenu}
-              className="bg-[#d49454] hover:bg-[#b87d40] text-[#26130b] px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all shadow-md cursor-pointer"
-            >
+            <button onClick={handleReturnToMenu} className="bg-[#d49454] hover:bg-[#b87d40] text-[#26130b] px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all shadow-md cursor-pointer">
               ← Back to Interactive Menu
             </button>
           </div>
 
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-black italic tracking-wider text-[#ffb074] drop-shadow-md mb-2" style={{ fontFamily: 'serif' }}>
+            <h1 className="text-4xl md:text-6xl font-black italic tracking-wider text-[#ffb074] drop-shadow-md mb-2" style={{ fontFamily: "serif" }}>
               Café <span className="text-white not-italic">Too</span>
             </h1>
             <div className="inline-block border-b-2 border-t-2 border-[#d49454]/40 py-1 px-8">
@@ -231,95 +200,44 @@ export default function AboutMenuGallery() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-            
             <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Drinks</h3>
-                <div className="space-y-2 text-xs md:text-sm">
-                  {menuItems.drinks.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-baseline gap-2">
-                      <span className="font-medium text-[#f4d0a4]">{item.name}</span>
-                      <div className="flex-1 border-b border-dotted border-[#d49454]/30 mx-2"></div>
-                      <span className="font-mono font-bold text-[#ffb074]">{item.price}</span>
-                    </div>
-                  ))}
+              {(["drinks", "pasta", "pizza"] as const).map((category) => (
+                <div key={category}>
+                  <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">{category}</h3>
+                  <div className="space-y-2 text-xs md:text-sm">
+                    {menuItems[category].map((item, idx) => (
+                      <div key={idx} className="flex justify-between items-baseline gap-2">
+                        <span className="font-medium text-[#f4d0a4]">{item.name}</span>
+                        <div className="flex-1 border-b border-dotted border-[#d49454]/30 mx-2"></div>
+                        <span className="font-mono font-bold text-[#ffb074]">{item.price}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Pasta</h3>
-                <div className="space-y-2 text-xs md:text-sm">
-                  {menuItems.pasta.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-baseline gap-2">
-                      <span className="font-medium text-[#f4d0a4]">{item.name}</span>
-                      <div className="flex-1 border-b border-dotted border-[#d49454]/30 mx-2"></div>
-                      <span className="font-mono font-bold text-[#ffb074]">{item.price}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Pizza</h3>
-                <div className="space-y-2 text-xs md:text-sm">
-                  {menuItems.pizza.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-baseline gap-2">
-                      <span className="font-medium text-[#f4d0a4]">{item.name}</span>
-                      <div className="flex-1 border-b border-dotted border-[#d49454]/30 mx-2"></div>
-                      <span className="font-mono font-bold text-[#ffb074]">{item.price}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
 
             <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Tea</h3>
-                <div className="space-y-2 text-xs md:text-sm">
-                  {menuItems.tea.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-baseline gap-2">
-                      <span className="font-medium text-[#f4d0a4]">{item.name}</span>
-                      <div className="flex-1 border-b border-dotted border-[#d49454]/30 mx-2"></div>
-                      <span className="font-mono font-bold text-[#ffb074]">{item.price}</span>
-                    </div>
-                  ))}
+              {(["tea", "quickbites", "combo"] as const).map((category) => (
+                <div key={category}>
+                  <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">{category === "tea" ? "Tea" : category === "quickbites" ? "Quick Bites" : "Combo"}</h3>
+                  <div className="space-y-2 text-xs md:text-sm">
+                    {menuItems[category].map((item, idx) => (
+                      <div key={idx} className="flex justify-between items-baseline gap-2">
+                        <span className="font-medium text-[#f4d0a4]">{item.name}</span>
+                        <div className="flex-1 border-b border-dotted border-[#d49454]/30 mx-2"></div>
+                        <span className="font-mono font-bold text-[#ffb074]">{item.price}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Quick bites</h3>
-                <div className="space-y-2 text-xs md:text-sm">
-                  {menuItems.quickbites.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-baseline gap-2">
-                      <span className="font-medium text-[#f4d0a4]">{item.name}</span>
-                      <div className="flex-1 border-b border-dotted border-[#d49454]/30 mx-2"></div>
-                      <span className="font-mono font-bold text-[#ffb074]">{item.price}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold uppercase tracking-widest text-[#ff9f59] mb-4 border-b border-[#d49454]/20 pb-1">Combo</h3>
-                <div className="space-y-2 text-xs md:text-sm">
-                  {menuItems.combo.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-baseline gap-2">
-                      <span className="font-medium text-[#f4d0a4]">{item.name}</span>
-                      <div className="flex-1 border-b border-dotted border-[#d49454]/30 mx-2"></div>
-                      <span className="font-mono font-bold text-[#ffb074]">{item.price}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
-
           </div>
 
           <div className="mt-16 pt-6 border-t border-[#d49454]/20 text-center text-xs text-[#d49454]/70 uppercase tracking-widest">
             <p>Café Too • Jay Ambey Apartment, Dhalua Main Road, Kolkata</p>
           </div>
-
         </div>
       </div>
     );
@@ -327,26 +245,20 @@ export default function AboutMenuGallery() {
 
   return (
     <div className="bg-[#090706] text-white relative z-20 overflow-x-hidden">
-      
       {/* ABOUT SECTION */}
-      <section 
-        id="about" 
+      <section
+        id="about"
         className="relative pt-24 pb-32 px-6 md:px-16 overflow-hidden border-t border-white/10 bg-[#090706]"
         style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(9,7,6,0.92) 20%, rgba(9,7,6,0.6) 50%, rgba(9,7,6,0.92) 80%), 
-            url('/ss.png')
-          `,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
+          backgroundImage: `linear-gradient(to right, rgba(9,7,6,0.92) 20%, rgba(9,7,6,0.6) 50%, rgba(9,7,6,0.92) 80%), url('/ss.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <div className="relative z-20 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-orange-400 text-xs uppercase tracking-[0.3em] font-semibold mb-4 drop-shadow-md">
-              ✦ About Café Too
-            </p>
+            <p className="text-orange-400 text-xs uppercase tracking-[0.3em] font-semibold mb-4 drop-shadow-md">✦ About Café Too</p>
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-6 drop-shadow-lg">
               Your Everyday Chill Spot in Kolkata.
             </h2>
@@ -354,25 +266,15 @@ export default function AboutMenuGallery() {
               Welcome to <strong className="text-white font-medium">Café Too</strong>, located at Jay Ambey Apartment, 146 Dhalua Main Road, Kolkata - 700152. We built this space for good conversations, unforgettable hangouts, and soul-satisfying food. Whether you are catching up after classes or chilling late into the evening, our cozy vibe, polaroids, and warm lighting make you feel right at home.
             </p>
             <div className="flex flex-wrap gap-6 text-xs uppercase tracking-widest text-orange-300 font-medium">
-              <div className="bg-[#14100d]/90 border border-white/15 px-4 py-3 rounded-lg backdrop-blur-md shadow-2xl">
-                ✨ Fresh Ingredients
-              </div>
-              <div className="bg-[#14100d]/90 border border-white/15 px-4 py-3 rounded-lg backdrop-blur-md shadow-2xl">
-                ❤️ Cozy Ambience
-              </div>
+              <div className="bg-[#14100d]/90 border border-white/15 px-4 py-3 rounded-lg backdrop-blur-md shadow-2xl">✨ Fresh Ingredients</div>
+              <div className="bg-[#14100d]/90 border border-white/15 px-4 py-3 rounded-lg backdrop-blur-md shadow-2xl">❤️ Cozy Ambience</div>
             </div>
           </div>
-          
+
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-600 to-amber-700 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
             <div className="relative rounded-xl overflow-hidden border border-white/15 bg-[#120e0c] aspect-[4/3] shadow-2xl">
-              <img
-                src={customGalleryImages[0].url}
-                alt="Cafe Too interior"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover filter brightness-90 contrast-110 transform hover:scale-105 transition-transform duration-700"
-              />
+              <img src={customGalleryImages[0].url} alt="Cafe Too interior" loading="lazy" decoding="async" className="w-full h-full object-cover filter brightness-90 contrast-110 transform hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
         </div>
@@ -384,19 +286,11 @@ export default function AboutMenuGallery() {
           <p className="text-orange-400 text-xs uppercase tracking-[0.3em] font-semibold mb-3">Delicious Offerings</p>
           <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4">Explore Our Menu</h2>
           <p className="text-white/60 text-sm mb-8">Handcrafted beverages, pastas, pizzas, and quick bites made fresh to order.</p>
-          
-          {/* Action Buttons: View Paper Menu & View Food Pics */}
           <div className="flex flex-wrap justify-center gap-4">
-            <button
-              onClick={() => setViewMode("paper-menu")}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all shadow-lg border border-orange-400/30 transform hover:scale-105 cursor-pointer"
-            >
+            <button onClick={() => setViewMode("paper-menu")} className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all shadow-lg border border-orange-400/30 transform hover:scale-105 cursor-pointer">
               📄 View Paper Menu
             </button>
-            <button
-              onClick={() => setViewMode("food-pics")}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all shadow-lg border border-white/20 transform hover:scale-105 cursor-pointer"
-            >
+            <button onClick={() => setViewMode("food-pics")} className="inline-flex items-center gap-2 bg-white/10 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all shadow-lg border border-white/20 transform hover:scale-105 cursor-pointer">
               📸 View Food Pics
             </button>
           </div>
@@ -404,15 +298,7 @@ export default function AboutMenuGallery() {
 
         <div className="flex justify-center gap-3 md:gap-4 mb-12 flex-wrap">
           {menuCategories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={`px-6 py-3 text-xs uppercase tracking-[0.2em] font-semibold rounded-full transition-all duration-300 cursor-pointer ${
-                activeTab === cat.id
-                  ? "bg-orange-600 text-white shadow-lg shadow-orange-900/40 border border-orange-500"
-                  : "bg-white/5 text-white/70 border border-white/10 hover:bg-white/10"
-              }`}
-            >
+            <button key={cat.id} onClick={() => setActiveTab(cat.id)} className={`px-6 py-3 text-xs uppercase tracking-[0.2em] font-semibold rounded-full transition-all duration-300 cursor-pointer ${activeTab === cat.id ? "bg-orange-600 text-white shadow-lg shadow-orange-900/40 border border-orange-500" : "bg-white/5 text-white/70 border border-white/10 hover:bg-white/10"}`}>
               {cat.name}
             </button>
           ))}
@@ -420,10 +306,7 @@ export default function AboutMenuGallery() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {menuItems[activeTab].map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-[#120e0c] border border-white/10 p-6 rounded-xl hover:border-orange-500/50 transition-all duration-300 flex flex-col justify-between group shadow-xl"
-            >
+            <div key={idx} className="bg-[#120e0c] border border-white/10 p-6 rounded-xl hover:border-orange-500/50 transition-all duration-300 flex flex-col justify-between group shadow-xl">
               <div>
                 <div className="flex justify-between items-start gap-4 mb-3">
                   <h3 className="text-lg font-bold group-hover:text-orange-400 transition-colors">{item.name}</h3>
@@ -447,28 +330,15 @@ export default function AboutMenuGallery() {
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">The Café Too Gallery</h2>
             <p className="text-white/60 text-sm mt-3">A sneak peek into our food, ambiance, and happy moments.</p>
           </div>
-          <button
-            onClick={() => setViewMode("gallery")}
-            className="bg-white/10 hover:bg-orange-600 text-white border border-white/20 px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all cursor-pointer"
-          >
+          <button onClick={() => setViewMode("gallery")} className="bg-white/10 hover:bg-orange-600 text-white border border-white/20 px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all cursor-pointer">
             Open Full Gallery Page →
           </button>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {customGalleryImages.slice(0, 3).map((img, idx) => (
-            <div 
-              key={idx} 
-              onClick={() => setViewMode("gallery")}
-              className="group relative overflow-hidden rounded-xl aspect-[4/3] border border-white/10 bg-[#120e0c] shadow-xl cursor-pointer"
-            >
-              <img
-                src={img.url}
-                alt={img.title}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 transition-transform duration-700"
-              />
+            <div key={idx} onClick={() => setViewMode("gallery")} className="group relative overflow-hidden rounded-xl aspect-[4/3] border border-white/10 bg-[#120e0c] shadow-xl cursor-pointer">
+              <img src={img.url} alt={img.title} loading="lazy" decoding="async" className="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <p className="text-xs uppercase tracking-widest font-semibold text-orange-300">{img.title} (Click to View All)</p>
               </div>
@@ -493,18 +363,6 @@ export default function AboutMenuGallery() {
                 <span>Jay Ambey Apartment, 146 Dhalua Main Road, Kolkata - 700152</span>
               </div>
               <div className="flex items-center gap-3">
-                <MessageCircle size={16} className="text-green-500 shrink-0" />
-                <span>+91 91430 03365</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <svg className="w-4 h-4 text-orange-400 shrink-0 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-                <a href="https://www.instagram.com/cafetoo_15.04" target="_blank" rel="noreferrer" className="hover:text-orange-400 underline">
-                  @cafetoo_15.04
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
                 <span className="text-orange-400">🕒</span>
                 <span>Open Daily: 10:00 AM – 11:00 PM</span>
               </div>
@@ -514,50 +372,17 @@ export default function AboutMenuGallery() {
           <div className="flex flex-col justify-center bg-[#090706] p-8 rounded-xl border border-white/5">
             <h3 className="text-lg font-bold mb-4 uppercase tracking-wider">Send a Quick Note</h3>
             <form onSubmit={(e) => { e.preventDefault(); alert("Thanks for reaching out to Café Too!"); }} className="space-y-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                required
-                className="w-full bg-[#14100d] border border-white/10 px-4 py-3 rounded text-xs focus:outline-none focus:border-orange-500 text-white"
-              />
-              <input
-                type="text"
-                placeholder="Phone / Email"
-                required
-                className="w-full bg-[#14100d] border border-white/10 px-4 py-3 rounded text-xs focus:outline-none focus:border-orange-500 text-white"
-              />
-              <textarea
-                placeholder="Your Message or Table Reservation Inquiry"
-                rows={3}
-                required
-                className="w-full bg-[#14100d] border border-white/10 px-4 py-3 rounded text-xs focus:outline-none focus:border-orange-500 text-white"
-              ></textarea>
-              <button
-                type="submit"
-                className="w-full bg-orange-600 hover:bg-orange-500 transition-colors py-3 rounded text-xs uppercase tracking-[0.2em] font-bold text-white shadow-lg cursor-pointer"
-              >
+              <input type="text" placeholder="Your Name" required className="w-full bg-[#14100d] border border-white/10 px-4 py-3 rounded text-xs focus:outline-none focus:border-orange-500 text-white" />
+              <input type="text" placeholder="Phone / Email" required className="w-full bg-[#14100d] border border-white/10 px-4 py-3 rounded text-xs focus:outline-none focus:border-orange-500 text-white" />
+              <textarea placeholder="Your Message or Table Reservation Inquiry" rows={3} required className="w-full bg-[#14100d] border border-white/10 px-4 py-3 rounded text-xs focus:outline-none focus:border-orange-500 text-white"></textarea>
+              <button type="submit" className="w-full bg-orange-600 hover:bg-orange-500 transition-colors py-3 rounded text-xs uppercase tracking-[0.2em] font-bold text-white shadow-lg cursor-pointer">
                 Send Message
               </button>
             </form>
           </div>
         </div>
 
-        {/* GOOGLE MAP EMBED CONTAINER */}
-        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl h-80 w-full relative">
-          <div className="absolute top-4 left-4 z-10 bg-[#090706]/90 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10 text-xs font-bold uppercase tracking-wider text-orange-400">
-            Find Us on Google Maps 🗺️
-          </div>
-          <iframe 
-            title="Cafe Too Google Map Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5367622998394!2d88.3970860762955!3d22.48197753634045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027157a9e334d5%3A0xc391b1a774cbfcd5!2sJay%20Ambey%20Apartments!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-            width="100%" 
-            height="100%" 
-            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(120%)' }} 
-            allowFullScreen={false} 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
+        
 
         {/* Footer bottom */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50">
@@ -565,7 +390,6 @@ export default function AboutMenuGallery() {
           <p className="mt-4 sm:mt-0 font-medium tracking-widest uppercase">Sip. Chill. Repeat. @Cafe 2</p>
         </div>
       </section>
-
     </div>
   );
 }
